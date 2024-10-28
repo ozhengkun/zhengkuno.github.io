@@ -1,0 +1,57 @@
+---
+title: "Experiences"
+output: 
+  html_document:
+    toc: true
+    toc_float: true
+    theme: cerulean
+---
+
+## EDUCATION
+**COLUMBIA UNIVERSITY MAILMAN SCHOOL OF PUBLIC HEALTH** | New York, NY  
+*Expected May, 2026*  
+Master of Science in Biostatistics-Health Data Science  
+
+**UNIVERSITY OF MICHIGAN** | Ann Arbor, MI  
+*May, 2024*  
+Bachelor of Science, Majors: Mathematics, Statistics, GPA: 3.8/4.0  
+**Relevant Coursework**: Data Mining | Probability Theory | Coding in R | Computational Methods | Application of Regression | Math of Finance | Modern Algebra | Theoretical Statistics  
+**Awards/Honors**: 2022-2023 University Honors, 2023-2024 University Honors  
+
+## SKILLS
+**Data Analysis**: R, EXCEL, SQL, C++, Python  
+
+## WORK EXPERIENCE
+**Shenwan Hongyuan Securities Co., Ltd** | Business Intelligence Intern | Beijing, China  
+*June, 2024 – September, 2024*  
+- Utilized R to calculate key financial metrics in targeted hedge funds based on public data, including weekly win rate, maximum drawdown rate, absolute return, and turnover rate. Created boxplots/scatterplots or tables in R every week to assist the sales team in evaluating fund performance.  
+- Conducted mid-year research report for 10 hedge funds by using Microsoft Word, including generating industry deviation charts in Excel. Presented the report in Microsoft PowerPoint to senior leadership.  
+- Evaluated and verified fund manager investment styles by analyzing key style factors through self-learning Barra China Equity Model (CNE5), recalculating the factors' weights in R, ensuring alignment between declared strategies and actual performance data.  
+
+**Harvest Fund Management** | Business Analyst Intern | Beijing, China  
+*June, 2023 – August, 2023*  
+- Utilized Excel and Wind to automate performance tracking for over 50 portfolio managers within the Social Security Fund (SSF), analyzing more than 100,000 data points. Generated 20+ actionable reports that enabled managers to enhance portfolio strategies and decision-making.  
+- Designed and implemented data-driven reporting solutions for SSF management, streamlining research processes and reducing analysis time by 20%.  
+- Developed a 25-page report on RMB liberalization, applying macroeconomic principles (e.g., the impossible trinity) to assess potential impacts on SSF investments. Presented findings and recommendations to senior leadership.  
+
+**University of Michigan** | Student Manager | Ann Arbor, MI  
+*August, 2022 – May, 2024*  
+- Delivered training sessions to more than 10 new employees in the policies and procedures required by the positions.  
+- Maintained sales data for almost two years, recording sales revenue with 98% accuracy and preparing 50+ financial reports.  
+- Offered excellent customer service to 50+ customers per hour, including answering questions, offering suggestions, and resolving complaints. Assisted 20+ employees with other store-related tasks, such as cleaning and maintaining equipment.  
+
+## RESEARCH EXPERIENCE
+**University of Michigan - School of Public Health** | Research Associate | Ann Arbor, MI  
+*August, 2023 – May, 2024*  
+- Conducted statistical modeling for cardiovascular research using RStan to analyze clinical data.  
+- Developed a custom data transformation function to preprocess patient data, including creating time grids, defining variables, and handling different event types to prepare data for survival analysis.  
+- Built numeric design matrices and lag matrices for advanced modeling of time-dependent covariates, improving the accuracy of predictions by 30%.  
+- Used Bayesian modeling with Stan, specifying a multi-level model that incorporated Poisson and Bernoulli distributions to estimate event probabilities and counts.  
+- Implemented a combined model in Stan, utilizing covariance matrices and hierarchical priors to account for varying effects in patient outcomes.  
+- Conducted simulations and fitted Bayesian models using iterative MCMC sampling, generating insights from complex data involving multiple time points and events.  
+
+**University of Michigan - Department of Political Science** | Research Assistant | Ann Arbor, MI  
+*August, 2023 – May, 2024*  
+- Collaborated with a diverse team of 5 researchers to develop a culturally sensitive survey instrument including over 20 linked questions, ensuring they were tailored to the unique social and demographic characteristics of the target population.  
+- Administered the survey to a representative sample of over 1,000 individuals across 15 cities in Yunnan and Sichuan provinces.  
+- Developed a customized Excel VBA script to automate the data filtering and cleaning process, reducing manual workload by 80% and saving an estimated 50+ hours of effort.  
