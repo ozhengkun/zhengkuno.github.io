@@ -4,7 +4,7 @@ output:
   html_document:
     toc: true
     toc_float: true
-    theme: cyborg
+    theme: cerulean
 ---
 
 Welcome to my personal website, my name is Zhengkun Ou and I'm a first year graduate student majoring in Biostatistics at Mailman School of Public Health, Columbia University. 
