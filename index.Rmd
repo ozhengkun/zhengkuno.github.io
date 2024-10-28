@@ -11,6 +11,3 @@ Welcome to my personal website, my name is Zhengkun Ou and I'm a first year grad
 
 
 
-## Local images
-![](images/ted.jpg)
-
