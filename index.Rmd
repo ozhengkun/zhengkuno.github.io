@@ -9,5 +9,8 @@ output:
 
 Welcome to my personal website, my name is Zhengkun Ou and I'm a first year graduate student majoring in Biostatistics at Mailman School of Public Health, Columbia University. 
 
+## Personal Link
+[Linkedin]("https://www.linkedin.com/in/zhengkun-ou-90874b265/")
 
-
+## Fun Fact about me
+I believe we are living with aliens and I studied one year of mechanical engineering and I handcrafted a hammer. 

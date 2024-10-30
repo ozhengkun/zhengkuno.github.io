@@ -1,0 +1,78 @@
+---
+title: "Precipitation and snow"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+library(flexdashboard)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+```{r}
+# Data manipulation using mutate()
+nydat <- ny_noaa %>%
+  filter(!is.na(prcp) & !is.na(tmax) & !is.na(tmin)) %>%
+  mutate(
+    prcp = as.numeric(prcp), 
+    snow = as.numeric(snow), 
+    snwd = as.numeric(snwd), 
+    tmax = as.numeric(tmax), 
+    tmin = as.numeric(tmin),
+    tmax_celsius = tmax / 10,
+    tmin_celsius = tmin / 10,
+    prcp_mm = prcp / 10,
+    snowfall_category = case_when(
+      snow == 0 ~ "No Snow",
+      snow <= 5 ~ "Light Snow",
+      snow <= 20 ~ "Moderate Snow",
+      TRUE ~ "Heavy Snow"
+    )
+  )
+scatter_sample <- nydat |> sample_n(1000)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Chart A
+
+```{r}
+plot_ly(scatter_sample, x = ~tmax_celsius, y = ~tmin_celsius, 
+        type = 'scatter', mode = 'markers',
+        marker = list(color = 'rgba(0, 0, 255, 0.5)', size = 5)) %>%
+  layout(title = 'Max vs Min Temperature',
+         xaxis = list(title = 'Max Temperature (°C)'),
+         yaxis = list(title = 'Min Temperature (°C)'))
+```
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Chart B
+
+```{r}
+
+plot_ly(scatter_sample, x = ~snowfall_category, y = ~prcp_mm, type = 'box', colors = "viridis") |>
+  layout(title = 'Box Plot: Precipitation by Snowfall Category',
+         xaxis = list(title = 'Snowfall Category'),
+         yaxis = list(title = 'Precipitation (mm)'))
+```
+```{r}
+avg_prep = nydat |>
+  group_by(snowfall_category) |>
+  summarize(avg_precip = mean(prcp_mm, na.rm = T))
+```
+
+### Chart C
+
+```{r}
+
+plot_ly(avg_prep, x = ~snowfall_category, y = ~avg_precip, type = 'bar')
+```
+

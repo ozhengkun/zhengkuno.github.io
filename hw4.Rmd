@@ -1,0 +1,78 @@
+---
+title: "dashboard"
+output: 
+  flexdashboard::flex_dashboard:
+    orientation: columns
+    vertical_layout: fill
+---
+
+```{r setup, include=FALSE}
+library(flexdashboard)
+knitr::opts_chunk$set(echo = TRUE)
+library(tidyverse)
+library(p8105.datasets)
+library(plotly)
+```
+
+Column {data-width=650}
+-----------------------------------------------------------------------
+
+### Scatterplot of MAX vs MIN Temperature
+```{r, echo = FALSE}
+nydat <- ny_noaa %>%
+  filter(!is.na(prcp) & !is.na(tmax) & !is.na(tmin)) %>%
+  mutate(
+    prcp = as.numeric(prcp), 
+    snow = as.numeric(snow), 
+    snwd = as.numeric(snwd), 
+    tmax = as.numeric(tmax), 
+    tmin = as.numeric(tmin),
+    tmax_celsius = tmax / 10,
+    tmin_celsius = tmin / 10,
+    prcp_mm = prcp / 10,
+    snowfall_category = case_when(
+      snow %in% c(0, NA) ~ "No Snow",
+      snow <= 10 ~ "Light Snow",
+      snow <= 30 ~ "Moderate Snow",
+      snow > 50~ "Heavy Snow"
+    )
+  )
+scatter_sample <- nydat |> sample_n(1000)
+plot_ly(scatter_sample, x = ~tmax_celsius, y = ~tmin_celsius, 
+        type = 'scatter', mode = 'markers',
+        marker = list(color = 'rgba(0, 0, 255, 0.5)', size = 5)) %>%
+  layout(title = 'Max vs Min Temperature',
+         xaxis = list(title = 'Max Temperature (°C)'),
+         yaxis = list(title = 'Min Temperature (°C)'))
+```
+
+
+Column {data-width=350}
+-----------------------------------------------------------------------
+
+### Boxplot of precipitation by snowfall category
+
+```{r,echo = FALSE}
+scatter_sample |> filter(prcp_mm < 40) |>
+plot_ly(x = ~snowfall_category, y = ~prcp_mm, type = 'box', colors = "viridis") |>
+  layout(title = 'Box Plot: Precipitation by Snowfall Category',
+         xaxis = list(title = 'Snowfall Category'),
+         yaxis = list(title = 'Precipitation (mm)'))
+
+avg_prep = nydat |>
+  group_by(snowfall_category) |>
+  summarize(avg_precip = mean(prcp_mm, na.rm = T))
+```
+
+### Barplot by snowfall category
+
+```{r, echo = FALSE}
+plot_ly(avg_prep, x = ~snowfall_category, y = ~avg_precip, type = 'bar')
+```
+
+```{r, echo = FALSE}
+nydat |> 
+  filter(snowfall_category == "Heavy Snow") |> 
+  select(snow, snowfall_category)
+
+```
